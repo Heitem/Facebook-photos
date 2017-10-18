@@ -10,6 +10,7 @@
 		7644D9661F97945E00332091 /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7644D9651F97945E00332091 /* SignUpTextField.swift */; };
 		7644D9671F97A57100332091 /* Klavika Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7644D9601F9790E000332091 /* Klavika Bold.otf */; };
 		7644D9691F97AB2B00332091 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7644D9681F97AB2B00332091 /* ShadowButton.swift */; };
+		7644D96B1F97B51500332091 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644D96A1F97B51500332091 /* AlbumCell.xib */; };
 		76A95F0B1F9786CE002749F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A95F0A1F9786CE002749F5 /* AppDelegate.swift */; };
 		76A95F0D1F9786CE002749F5 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A95F0C1F9786CE002749F5 /* SignUpVC.swift */; };
 		76A95F101F9786CE002749F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A95F0E1F9786CE002749F5 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 		7644D9601F9790E000332091 /* Klavika Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Klavika Bold.otf"; sourceTree = "<group>"; };
 		7644D9651F97945E00332091 /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
 		7644D9681F97AB2B00332091 /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
+		7644D96A1F97B51500332091 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		76A95F071F9786CE002749F5 /* Small Fb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Fb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A95F0A1F9786CE002749F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A95F0C1F9786CE002749F5 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				76A95F111F9786CE002749F5 /* Assets.xcassets */,
 				76A95F131F9786CE002749F5 /* LaunchScreen.storyboard */,
 				76A95F161F9786CE002749F5 /* Info.plist */,
+				7644D96A1F97B51500332091 /* AlbumCell.xib */,
 			);
 			path = "Small Fb";
 			sourceTree = "<group>";
@@ -166,6 +169,7 @@
 			files = (
 				76A95F151F9786CE002749F5 /* LaunchScreen.storyboard in Resources */,
 				76A95F121F9786CE002749F5 /* Assets.xcassets in Resources */,
+				7644D96B1F97B51500332091 /* AlbumCell.xib in Resources */,
 				76A95F101F9786CE002749F5 /* Main.storyboard in Resources */,
 				7644D9671F97A57100332091 /* Klavika Bold.otf in Resources */,
 			);
