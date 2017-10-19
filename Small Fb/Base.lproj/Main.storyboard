@@ -139,10 +139,10 @@
             </objects>
             <point key="canvasLocation" x="877.60000000000002" y="30.134932533733135"/>
         </scene>
-        <!--View Controller-->
+        <!--AlbumsVC-->
         <scene sceneID="Oh6-EL-6Xe">
             <objects>
-                <viewController id="oRk-gQ-64g" sceneMemberID="viewController">
+                <viewController id="oRk-gQ-64g" customClass="AlbumsVC" customModule="Small_Fb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0ia-iV-cbJ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -196,6 +196,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="96j-Kh-MBf"/>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="t06-9G-mrU" id="Fsb-Ae-Eca"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTh-Pr-5HZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

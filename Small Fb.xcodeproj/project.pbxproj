@@ -15,6 +15,10 @@
 		768201C91F98ADB200F246EB /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201C81F98ADB200F246EB /* DataService.swift */; };
 		768201CA1F98AFC800F246EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 768201C61F98A9AF00F246EB /* GoogleService-Info.plist */; };
 		768201CC1F98B20700F246EB /* FbConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201CB1F98B20700F246EB /* FbConnectVC.swift */; };
+		768201CE1F98D60500F246EB /* AlbumsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201CD1F98D60500F246EB /* AlbumsVC.swift */; };
+		768201D01F98D69E00F246EB /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201CF1F98D69E00F246EB /* Album.swift */; };
+		768201D21F98DAA500F246EB /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201D11F98DAA500F246EB /* AlbumCell.swift */; };
+		768201D41F98DEC000F246EB /* Contants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201D31F98DEC000F246EB /* Contants.swift */; };
 		76A95F0B1F9786CE002749F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A95F0A1F9786CE002749F5 /* AppDelegate.swift */; };
 		76A95F0D1F9786CE002749F5 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A95F0C1F9786CE002749F5 /* SignUpVC.swift */; };
 		76A95F101F9786CE002749F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A95F0E1F9786CE002749F5 /* Main.storyboard */; };
@@ -31,6 +35,10 @@
 		768201C61F98A9AF00F246EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		768201C81F98ADB200F246EB /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		768201CB1F98B20700F246EB /* FbConnectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FbConnectVC.swift; sourceTree = "<group>"; };
+		768201CD1F98D60500F246EB /* AlbumsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsVC.swift; sourceTree = "<group>"; };
+		768201CF1F98D69E00F246EB /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		768201D11F98DAA500F246EB /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		768201D31F98DEC000F246EB /* Contants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contants.swift; sourceTree = "<group>"; };
 		76A95F071F9786CE002749F5 /* Small Fb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Fb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A95F0A1F9786CE002749F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A95F0C1F9786CE002749F5 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -57,6 +65,7 @@
 		7644D9611F9790E500332091 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				768201CF1F98D69E00F246EB /* Album.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -66,6 +75,7 @@
 			children = (
 				7644D9681F97AB2B00332091 /* ShadowButton.swift */,
 				7644D9651F97945E00332091 /* SignUpTextField.swift */,
+				768201D11F98DAA500F246EB /* AlbumCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -75,6 +85,7 @@
 			children = (
 				76A95F0C1F9786CE002749F5 /* SignUpVC.swift */,
 				768201CB1F98B20700F246EB /* FbConnectVC.swift */,
+				768201CD1F98D60500F246EB /* AlbumsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -83,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				7644D9601F9790E000332091 /* Klavika Bold.otf */,
+				768201D31F98DEC000F246EB /* Contants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -245,23 +257,27 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Small Fb/Pods-Small Fb-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -297,10 +313,14 @@
 			files = (
 				7644D9691F97AB2B00332091 /* ShadowButton.swift in Sources */,
 				7644D9661F97945E00332091 /* SignUpTextField.swift in Sources */,
+				768201CE1F98D60500F246EB /* AlbumsVC.swift in Sources */,
 				76A95F0D1F9786CE002749F5 /* SignUpVC.swift in Sources */,
 				76A95F0B1F9786CE002749F5 /* AppDelegate.swift in Sources */,
 				768201C91F98ADB200F246EB /* DataService.swift in Sources */,
 				768201CC1F98B20700F246EB /* FbConnectVC.swift in Sources */,
+				768201D41F98DEC000F246EB /* Contants.swift in Sources */,
+				768201D01F98D69E00F246EB /* Album.swift in Sources */,
+				768201D21F98DAA500F246EB /* AlbumCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

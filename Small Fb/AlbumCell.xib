@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="AlbumCell" customModule="Small_Fb" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -44,6 +44,11 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="fih-kh-rGi" secondAttribute="bottom" id="gyJ-mG-gud"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="albumImage" destination="TKV-2j-9fg" id="8cp-OZ-cq4"/>
+                <outlet property="numberImages" destination="7x0-ai-Z68" id="0BO-Bl-Prc"/>
+                <outlet property="title" destination="gMn-cY-4tV" id="VCn-Xs-cgq"/>
+            </connections>
             <point key="canvasLocation" x="24.5" y="52.5"/>
         </view>
     </objects>
