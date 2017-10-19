@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57CBAF544F5E95E9BCD753D8 /* Pods_Small_Fb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EC79476B215EF1F95BBA07 /* Pods_Small_Fb.framework */; };
 		7644D9661F97945E00332091 /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7644D9651F97945E00332091 /* SignUpTextField.swift */; };
 		7644D9671F97A57100332091 /* Klavika Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7644D9601F9790E000332091 /* Klavika Bold.otf */; };
 		7644D9691F97AB2B00332091 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7644D9681F97AB2B00332091 /* ShadowButton.swift */; };
@@ -19,10 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65EC79476B215EF1F95BBA07 /* Pods_Small_Fb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Small_Fb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7644D9601F9790E000332091 /* Klavika Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Klavika Bold.otf"; sourceTree = "<group>"; };
 		7644D9651F97945E00332091 /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
 		7644D9681F97AB2B00332091 /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
 		7644D96A1F97B51500332091 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
+		768201C61F98A9AF00F246EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76A95F071F9786CE002749F5 /* Small Fb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Fb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A95F0A1F9786CE002749F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A95F0C1F9786CE002749F5 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -30,6 +33,8 @@
 		76A95F111F9786CE002749F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76A95F141F9786CE002749F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		76A95F161F9786CE002749F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		81026F01F61D74D2742318EC /* Pods-Small Fb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Small Fb.release.xcconfig"; path = "Pods/Target Support Files/Pods-Small Fb/Pods-Small Fb.release.xcconfig"; sourceTree = "<group>"; };
+		8A75CEA18E2A714D90F32758 /* Pods-Small Fb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Small Fb.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Small Fb/Pods-Small Fb.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57CBAF544F5E95E9BCD753D8 /* Pods_Small_Fb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +86,8 @@
 			children = (
 				76A95F091F9786CE002749F5 /* Small Fb */,
 				76A95F081F9786CE002749F5 /* Products */,
+				90A22CD2A03CC13C7DAF4D93 /* Pods */,
+				C33110C1753F86A4E733A391 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,8 +112,26 @@
 				76A95F131F9786CE002749F5 /* LaunchScreen.storyboard */,
 				76A95F161F9786CE002749F5 /* Info.plist */,
 				7644D96A1F97B51500332091 /* AlbumCell.xib */,
+				768201C61F98A9AF00F246EB /* GoogleService-Info.plist */,
 			);
 			path = "Small Fb";
+			sourceTree = "<group>";
+		};
+		90A22CD2A03CC13C7DAF4D93 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8A75CEA18E2A714D90F32758 /* Pods-Small Fb.debug.xcconfig */,
+				81026F01F61D74D2742318EC /* Pods-Small Fb.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C33110C1753F86A4E733A391 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65EC79476B215EF1F95BBA07 /* Pods_Small_Fb.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,9 +141,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76A95F191F9786CE002749F5 /* Build configuration list for PBXNativeTarget "Small Fb" */;
 			buildPhases = (
+				F094EBA4B193DD5AB7C08834 /* [CP] Check Pods Manifest.lock */,
 				76A95F031F9786CE002749F5 /* Sources */,
 				76A95F041F9786CE002749F5 /* Frameworks */,
 				76A95F051F9786CE002749F5 /* Resources */,
+				B37C820821B1098CAC2004F8 /* [CP] Embed Pods Frameworks */,
+				A7EE37E21A04FAD13BF5FE61 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -176,6 +205,74 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A7EE37E21A04FAD13BF5FE61 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Small Fb/Pods-Small Fb-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B37C820821B1098CAC2004F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Small Fb/Pods-Small Fb-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Small Fb/Pods-Small Fb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F094EBA4B193DD5AB7C08834 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Small Fb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		76A95F031F9786CE002749F5 /* Sources */ = {
@@ -320,6 +417,7 @@
 		};
 		76A95F1A1F9786CE002749F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A75CEA18E2A714D90F32758 /* Pods-Small Fb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -334,6 +432,7 @@
 		};
 		76A95F1B1F9786CE002749F5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81026F01F61D74D2742318EC /* Pods-Small Fb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
