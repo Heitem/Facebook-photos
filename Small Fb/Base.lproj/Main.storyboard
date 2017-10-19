@@ -93,6 +93,7 @@
                     <connections>
                         <outlet property="emailField" destination="C0Y-jF-LI9" id="xuQ-Zq-RT4"/>
                         <outlet property="passwordField" destination="TGI-Jg-pn7" id="XgD-ta-hZe"/>
+                        <segue destination="4z1-j5-nUF" kind="show" identifier="goToFbConnect" id="TTe-yr-DVw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
