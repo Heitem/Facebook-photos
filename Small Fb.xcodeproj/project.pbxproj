@@ -14,6 +14,7 @@
 		7644D96B1F97B51500332091 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644D96A1F97B51500332091 /* AlbumCell.xib */; };
 		768201C91F98ADB200F246EB /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201C81F98ADB200F246EB /* DataService.swift */; };
 		768201CA1F98AFC800F246EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 768201C61F98A9AF00F246EB /* GoogleService-Info.plist */; };
+		768201CC1F98B20700F246EB /* FbConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201CB1F98B20700F246EB /* FbConnectVC.swift */; };
 		76A95F0B1F9786CE002749F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A95F0A1F9786CE002749F5 /* AppDelegate.swift */; };
 		76A95F0D1F9786CE002749F5 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A95F0C1F9786CE002749F5 /* SignUpVC.swift */; };
 		76A95F101F9786CE002749F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76A95F0E1F9786CE002749F5 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		7644D96A1F97B51500332091 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
 		768201C61F98A9AF00F246EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		768201C81F98ADB200F246EB /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		768201CB1F98B20700F246EB /* FbConnectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FbConnectVC.swift; sourceTree = "<group>"; };
 		76A95F071F9786CE002749F5 /* Small Fb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Small Fb.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A95F0A1F9786CE002749F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76A95F0C1F9786CE002749F5 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				76A95F0C1F9786CE002749F5 /* SignUpVC.swift */,
+				768201CB1F98B20700F246EB /* FbConnectVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				76A95F0D1F9786CE002749F5 /* SignUpVC.swift in Sources */,
 				76A95F0B1F9786CE002749F5 /* AppDelegate.swift in Sources */,
 				768201C91F98ADB200F246EB /* DataService.swift in Sources */,
+				768201CC1F98B20700F246EB /* FbConnectVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

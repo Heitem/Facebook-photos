@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
         </scene>
-        <!--View Controller-->
+        <!--Fb ConnectVC-->
         <scene sceneID="kWC-6S-bZT">
             <objects>
-                <viewController id="4z1-j5-nUF" sceneMemberID="viewController">
+                <viewController id="4z1-j5-nUF" customClass="FbConnectVC" customModule="Small_Fb" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t00-Rs-9Lh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,6 +112,9 @@
                                 <rect key="frame" x="75" y="228" width="225" height="210"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="f"/>
+                                <connections>
+                                    <action selector="fbConnectTapped:" destination="4z1-j5-nUF" eventType="touchUpInside" id="eRm-BK-N2b"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Connect to your Facebook account." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5N-tt-8eG">
                                 <rect key="frame" x="16" y="629" width="343" height="18"/>
@@ -128,6 +131,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dvh-9F-Q63"/>
                     </view>
+                    <connections>
+                        <segue destination="oRk-gQ-64g" kind="show" identifier="goToAlbums" id="9nP-w0-iNj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="06N-Lh-hbi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

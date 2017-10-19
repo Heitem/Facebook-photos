@@ -18,6 +18,10 @@ class SignUpVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
         if let _ = KeychainWrapper.standard.string(forKey: "uid") {
             performSegue(withIdentifier: "goToFbConnect", sender: nil)
         }
