@@ -18,10 +18,19 @@ class FbConnectVC: UIViewController {
         super.viewDidLoad()
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        if (FBSDKAccessToken.current()) != nil {
+            
+            self.performSegue(withIdentifier: "goToAlbums", sender: nil)
+        }
+        if Auth.auth().currentUser == nil {
+            dismiss(animated: true, completion: nil)
+        }
+    }
     
     @IBAction func fbConnectTapped(_ sender: Any) {
         let facebookLogin = FBSDKLoginManager()
-        facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
+        facebookLogin.logIn(withReadPermissions: ["user_photos"], from: self) { (result, error) in
             if error != nil {
                 print("Heitem: Unable to authentiate with Facebook. \(String(describing: error))")
             }
@@ -30,32 +39,33 @@ class FbConnectVC: UIViewController {
             }
             else {
                 print("Heitem: Successfully authenticated with Facebook")
-                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-                self.firebaseAuth(credential)
+//                let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+                //self.firebaseAuth(credential)
+                //self.performSegue(withIdentifier: "goToAlbums", sender: FbConnectVC.self)
             }
         }
     }
     
-    func firebaseAuth(_ credential: AuthCredential) {
-        Auth.auth().signIn(with: credential) { (user, error) in
-            if error != nil {
-                print("Heitem: Unable to authentiate with Firebase. \(String(describing: error))")
-            }
-            else {
-                print("Heitem: Successfully authenticated with Firebase")
-                if let user = user {
-                    let userData = ["provider": credential.provider]
-                    self.completeSignIn(id: user.uid, userData: userData)
-                }
-            }
-        }
-    }
+//    func firebaseAuth(_ credential: AuthCredential) {
+//        Auth.auth().signIn(with: credential) { (user, error) in
+//            if error != nil {
+//                print("Heitem: Unable to authentiate with Firebase. \(String(describing: error))")
+//            }
+//            else {
+//                print("Heitem: Successfully authenticated with Firebase")
+//                if let user = user {
+//                    let userData = ["provider": credential.provider]
+//                    self.completeSignIn(id: user.uid, userData: userData)
+//                }
+//            }
+//        }
+//    }
     
-    func completeSignIn(id: String, userData: Dictionary<String, String>) {
-        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
-        let keychainResult = KeychainWrapper.standard.set(id, forKey: "uid")
-        print("Heitem: Data saved to keychain \(keychainResult)")
-        performSegue(withIdentifier: "goToAlbums", sender: nil)
-    }
+//    func completeSignIn(id: String, userData: Dictionary<String, String>) {
+//        DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
+//        let keychainResult = KeychainWrapper.standard.set(id, forKey: "uid")
+//        print("Heitem: Data saved to keychain \(keychainResult)")
+//        performSegue(withIdentifier: "goToAlbums", sender: nil)
+//    }
     
 }

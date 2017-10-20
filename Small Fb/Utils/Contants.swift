@@ -8,4 +8,5 @@
 
 import Foundation
 
-typealias DownloadComplete = () -> ()
+let URL_BASE = "http://graph.facebook.com/"
+typealias DownloadComplete = () -> Void
