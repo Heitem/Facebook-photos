@@ -16,6 +16,7 @@ import AlamofireImage
 class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var photos = [Photo]()
     var urls = [String]()
@@ -23,7 +24,7 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     var token: FBSDKAccessToken!
     var uid: String!
     
-    var selectedPhotos: [UIImage]!
+    var selectedPhotos = [Int: UIImage]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,16 +35,18 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = true
         
+        activityIndicator.startAnimating()
         
         if token != nil {
             uid = token.userID
-            print("Heitem: \(uid!)")
-            print("Heitem: \(token.tokenString!)")
+            //print("Heitem: \(uid!)")
+            //print("Heitem: \(token.tokenString!)")
             getUrls {
                 
                 print("Heitem: urls \(self.urls.count)")
                 self.getImages {
-                    print("Heitem: photos \(self.photos.count)")
+                    //print("Heitem: photos \(self.photos.count)")
+                    self.activityIndicator.stopAnimating()
                 }
             }
         }
@@ -117,8 +120,9 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
 //        return image
 //    }
     
-    func storeImage(images: [UIImage]){
-        for img in images {
+    func storeImage(images: [Int:UIImage]){
+        print("Heitem: Storing selected images")
+        for (_, img) in images {
             let imageData = UIImageJPEGRepresentation(img, 1.0)
             let uploadRef = DataService.ds.REF_PHOTOS.child("\(randomString(length: 5)).jpg")
             
@@ -166,11 +170,24 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell{
-//            if let image = cell.image.image {
-//                selectedPhotos.append(image)
-//            }
-//        }
+        if let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell{
+            
+//            cell.layer.borderColor = UIColor.blue.cgColor
+//            cell.layer.borderWidth = 3
+            cell.selectionView.isHidden = false
+            if let image = cell.image.image {
+                selectedPhotos[indexPath.row] = image
+            }
+            print("Heitem: Image selected, selectedPhotos: \(selectedPhotos.count)")
+        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell{
+//            cell.layer.borderWidth = 0
+            cell.selectionView.isHidden = true
+            selectedPhotos[indexPath.row] = nil
+            print("Heitem: Image deselected, selectedPhotos: \(selectedPhotos.count)")
+        }
     }
     
     @IBAction func signOutTapped(_ sender: Any) {

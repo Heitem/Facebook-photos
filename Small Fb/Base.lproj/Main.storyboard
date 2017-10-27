@@ -26,8 +26,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="SVG-P7-mC2">
-                                <rect key="frame" x="48" y="205.5" width="279.5" height="256"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="SVG-P7-mC2">
+                                <rect key="frame" x="48" y="200.5" width="279.5" height="266"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="facebook photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfP-e2-MWj">
                                         <rect key="frame" x="0.0" y="0.0" width="279.5" height="40"/>
@@ -35,42 +35,47 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yZA-UR-nDf">
-                                        <rect key="frame" x="0.0" y="80" width="279.5" height="100"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="wae-es-kLg">
+                                        <rect key="frame" x="0.0" y="100" width="279.5" height="166"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C0Y-jF-LI9" customClass="SignUpTextField" customModule="Small_Fb" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="279.5" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="IcC-5N-ZwQ"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGI-Jg-pn7" customClass="SignUpTextField" customModule="Small_Fb" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="60" width="279.5" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="8ZS-Rp-eRc"/>
-                                                </constraints>
-                                                <nil key="textColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yZA-UR-nDf">
+                                                <rect key="frame" x="0.0" y="0.0" width="279.5" height="100"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C0Y-jF-LI9" customClass="SignUpTextField" customModule="Small_Fb" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="279.5" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="IcC-5N-ZwQ"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TGI-Jg-pn7" customClass="SignUpTextField" customModule="Small_Fb" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="60" width="279.5" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="40" id="8ZS-Rp-eRc"/>
+                                                        </constraints>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbW-jh-N05">
+                                                <rect key="frame" x="0.0" y="130" width="279.5" height="36"/>
+                                                <color key="backgroundColor" red="0.33664101359999998" green="0.50580549239999995" blue="0.73791724439999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                                                <state key="normal" title="Sign Up">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="signUpTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F7H-PH-6XS"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbW-jh-N05">
-                                        <rect key="frame" x="0.0" y="220" width="279.5" height="36"/>
-                                        <color key="backgroundColor" red="0.33664101359999998" green="0.50580549239999995" blue="0.73791724439999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
-                                        <state key="normal" title="Sign Up">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="signUpTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="F7H-PH-6XS"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up then connect to your Facebook account to access your photos." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TO-BU-Nu2">
@@ -157,7 +162,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oi9-gz-j5r">
-                                        <rect key="frame" x="119" y="29" width="138" height="27"/>
+                                        <rect key="frame" x="114" y="24.5" width="147.5" height="31.5"/>
                                         <fontDescription key="fontDescription" name="Klavika-Bold" family="Klavika" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -206,6 +211,11 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <activityIndicatorView key="backgroundView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" id="dhk-QF-4z0">
+                                    <rect key="frame" x="0.0" y="0.0" width="359" height="587"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="color" red="0.33725490200000002" green="0.50588235290000005" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </activityIndicatorView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="PhotoCell" id="LH9-i7-fUI" customClass="PhotoCell" customModule="Small_Fb" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
@@ -217,16 +227,25 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ncx-Kb-l9h">
                                                     <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
                                                 </imageView>
+                                                <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Woo-QD-Mni">
+                                                    <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+                                                    <color key="backgroundColor" red="0.33725490200000002" green="0.50588235290000005" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ncx-Kb-l9h" secondAttribute="trailing" id="41h-px-Kp0"/>
+                                            <constraint firstItem="Woo-QD-Mni" firstAttribute="top" secondItem="LH9-i7-fUI" secondAttribute="top" id="DNM-fn-WJ8"/>
                                             <constraint firstItem="ncx-Kb-l9h" firstAttribute="leading" secondItem="LH9-i7-fUI" secondAttribute="leading" id="Sb6-aZ-pJA"/>
+                                            <constraint firstItem="Woo-QD-Mni" firstAttribute="leading" secondItem="LH9-i7-fUI" secondAttribute="leading" id="VQP-9I-iTN"/>
                                             <constraint firstItem="ncx-Kb-l9h" firstAttribute="top" secondItem="LH9-i7-fUI" secondAttribute="top" id="lD2-Sa-VWb"/>
                                             <constraint firstAttribute="bottom" secondItem="ncx-Kb-l9h" secondAttribute="bottom" id="psE-4s-Dm3"/>
+                                            <constraint firstAttribute="trailing" secondItem="Woo-QD-Mni" secondAttribute="trailing" id="xc5-Ye-uy6"/>
+                                            <constraint firstAttribute="bottom" secondItem="Woo-QD-Mni" secondAttribute="bottom" id="xcJ-3p-F3A"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="image" destination="ncx-Kb-l9h" id="LB2-hY-Kty"/>
+                                            <outlet property="selectionView" destination="Woo-QD-Mni" id="KgV-3G-YDW"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -245,6 +264,7 @@
                         <viewLayoutGuide key="safeArea" id="96j-Kh-MBf"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="dhk-QF-4z0" id="6f4-9o-cj8"/>
                         <outlet property="collectionView" destination="t06-9G-mrU" id="Fsb-Ae-Eca"/>
                     </connections>
                 </viewController>
