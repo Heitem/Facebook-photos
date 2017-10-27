@@ -13,6 +13,7 @@ target 'Small Fb' do
   pod 'FBSDKLoginKit'
   pod 'SwiftKeychainWrapper'
   pod 'Alamofire', '~> 4.5'
+  pod 'AlamofireImage', '~> 3.3'
   pod 'SwiftyJSON'
 
 end

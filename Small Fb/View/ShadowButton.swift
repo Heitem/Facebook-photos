@@ -20,6 +20,6 @@ class ShadowButton: UIButton {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        layer.cornerRadius = self.frame.width / 2
+        layer.cornerRadius = 10.0
     }
 }

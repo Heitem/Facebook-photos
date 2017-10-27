@@ -12,6 +12,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 
 class Photo {
+    
     private var _image: UIImage!
     
     var image: UIImage {

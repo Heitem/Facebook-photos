@@ -10,12 +10,15 @@ import UIKit
 import FBSDKLoginKit
 import SwiftKeychainWrapper
 import Firebase
+import Alamofire
+import AlamofireImage
 
 class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
     var photos = [Photo]()
+    var urls = [String]()
     //var photo: Photo!
     var token: FBSDKAccessToken!
     var uid: String!
@@ -25,20 +28,28 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        token = FBSDKAccessToken.current()
+        
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.allowsMultipleSelection = true
         
-        token = FBSDKAccessToken.current()
+        
         if token != nil {
             uid = token.userID
             print("Heitem: \(uid!)")
             print("Heitem: \(token.tokenString!)")
-            fetchPhotos()
+            getUrls {
+                
+                print("Heitem: urls \(self.urls.count)")
+                self.getImages {
+                    print("Heitem: photos \(self.photos.count)")
+                }
+            }
         }
     }
     
-    func fetchPhotos() {
+    func getUrls(completed: @escaping DownloadComplete) {
         print("Heitem: Fetching photos")
         let params = ["type":"uploaded"]
         FBSDKGraphRequest(graphPath: "/me/photos", parameters: params, httpMethod: "GET").start { (connection, result, error) in
@@ -46,14 +57,65 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 print("Heitem: \(error!)")
                 return
             } else {
-                print("Heitem: result = \(result!)")
-                if let dict = result.result.value["data"] as? Dictionary<String, AnyObject> {
-                    
-                    //Get photos URL
+                if let dict = result as? NSDictionary {
+                    //print("H: \(dict)")
+                    if let data = dict["data"] as? [Dictionary<String, String>], data.count > 0 {
+                        for d in data {
+                            if let id = d["id"] {
+                                //print("HH: \(id)")
+                                let imageUrl = "\(URL_BASE)/\(id)/picture?access_token=\(self.token.tokenString!)"
+                                //print("Heitem: \(imageUrl)")
+                                self.urls.append(imageUrl)
+                                
+                            }
+                        }
+                        
+                        completed()
+                    }
                 }
             }
         }
     }
+    
+    func getImages(completed: @escaping DownloadComplete) {
+        DataRequest.addAcceptableImageContentTypes(["image/jpg"])
+        for imageUrl in urls {
+            
+            Alamofire.request(imageUrl).responseImage { response in
+                
+                debugPrint(response)
+                print(response.request!)
+                print(response.response!)
+                debugPrint(response.result)
+                
+                if let image = response.result.value {
+                    self.photos.append(Photo(image: image))
+                    print("Heitem: Images downloaded successfully: \(image)")
+                    print("Heitem: photos \(self.photos.count)")
+                    self.collectionView.reloadData()
+                }
+            }
+        }
+        completed()
+    }
+    
+//    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+//        URLSession.shared.dataTask(with: url) { data, response, error in
+//            completion(data, response, error)
+//            }.resume()
+//    }
+//
+//    func downloadImage(url: URL) -> UIImage {
+//        print("Download Started")
+//        var image: UIImage!
+//        getDataFromUrl(url: url) { data, response, error in
+//            guard let data = data, error == nil else { return }
+//            print(response?.suggestedFilename ?? url.lastPathComponent)
+//            print("Download Finished")
+//            image = UIImage(data: data)
+//        }
+//        return image
+//    }
     
     func storeImage(images: [UIImage]){
         for img in images {
@@ -104,13 +166,12 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell{
-            if let image = cell.image.image {
-                selectedPhotos.append(image)
-            }
-        }
+//        if let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell{
+//            if let image = cell.image.image {
+//                selectedPhotos.append(image)
+//            }
+//        }
     }
-
     
     @IBAction func signOutTapped(_ sender: Any) {
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: "uid")

@@ -108,9 +108,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXV-pi-tZ2" customClass="ShadowButton" customModule="Small_Fb" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pXV-pi-tZ2" customClass="ShadowButton" customModule="Small_Fb" customModuleProvider="target">
                                 <rect key="frame" x="75" y="228" width="225" height="210"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.33725490200000002" green="0.50588235290000005" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="225" id="5O0-2W-Nc5"/>
+                                    <constraint firstAttribute="height" constant="210" id="WIE-J6-8kH"/>
+                                </constraints>
                                 <state key="normal" image="f"/>
                                 <connections>
                                     <action selector="fbConnectTapped:" destination="4z1-j5-nUF" eventType="touchUpInside" id="eRm-BK-N2b"/>
@@ -127,7 +131,9 @@
                         <constraints>
                             <constraint firstItem="I5N-tt-8eG" firstAttribute="leading" secondItem="dvh-9F-Q63" secondAttribute="leading" constant="16" id="3Ut-6e-E2o"/>
                             <constraint firstItem="dvh-9F-Q63" firstAttribute="bottom" secondItem="I5N-tt-8eG" secondAttribute="bottom" constant="20" id="A3k-2I-Fye"/>
+                            <constraint firstItem="pXV-pi-tZ2" firstAttribute="centerX" secondItem="t00-Rs-9Lh" secondAttribute="centerX" id="OKc-dA-w2B"/>
                             <constraint firstItem="dvh-9F-Q63" firstAttribute="trailing" secondItem="I5N-tt-8eG" secondAttribute="trailing" constant="16" id="avv-eW-JPi"/>
+                            <constraint firstItem="pXV-pi-tZ2" firstAttribute="centerY" secondItem="t00-Rs-9Lh" secondAttribute="centerY" id="kmV-w5-wG0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dvh-9F-Q63"/>
                     </view>
@@ -151,22 +157,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Photos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oi9-gz-j5r">
-                                        <rect key="frame" x="114.5" y="24.5" width="147.5" height="31.5"/>
+                                        <rect key="frame" x="119" y="29" width="138" height="27"/>
                                         <fontDescription key="fontDescription" name="Klavika-Bold" family="Klavika" pointSize="27"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h9-Gj-KXe">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h9-Gj-KXe">
                                         <rect key="frame" x="8" y="31" width="36" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="Z7j-hi-URY"/>
+                                            <constraint firstAttribute="height" constant="25" id="i0Y-nO-vxy"/>
+                                        </constraints>
                                         <state key="normal" image="sign-out"/>
                                         <connections>
                                             <action selector="signOutTapped:" destination="oRk-gQ-64g" eventType="touchUpInside" id="jcH-xq-uoD"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ph8-Vp-S7S">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ph8-Vp-S7S">
                                         <rect key="frame" x="321" y="31" width="46" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="4th-tH-LFv"/>
+                                            <constraint firstAttribute="height" constant="25" id="jIt-io-GTY"/>
+                                        </constraints>
                                         <state key="normal" title="Store"/>
                                         <connections>
                                             <action selector="signOutTapped:" destination="oRk-gQ-64g" eventType="touchUpInside" id="2Ar-tm-wWS"/>
@@ -176,31 +188,34 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.23137254900000001" green="0.34901960780000002" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ph8-Vp-S7S" secondAttribute="trailing" constant="8" id="GLM-Fb-Qko"/>
+                                    <constraint firstAttribute="bottom" secondItem="4h9-Gj-KXe" secondAttribute="bottom" constant="8" id="P1x-d3-bDO"/>
                                     <constraint firstItem="Oi9-gz-j5r" firstAttribute="centerX" secondItem="pUi-FO-6S9" secondAttribute="centerX" id="Unm-kJ-oTA"/>
+                                    <constraint firstItem="4h9-Gj-KXe" firstAttribute="leading" secondItem="pUi-FO-6S9" secondAttribute="leading" constant="8" id="UqE-jO-HFY"/>
                                     <constraint firstAttribute="bottom" secondItem="Oi9-gz-j5r" secondAttribute="bottom" constant="8" id="cMS-2u-Vzz"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ph8-Vp-S7S" secondAttribute="bottom" constant="8" id="oeE-l2-cW4"/>
                                     <constraint firstAttribute="height" constant="64" id="qFO-ha-o0U"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t06-9G-mrU">
-                                <rect key="frame" x="16" y="72" width="343" height="575"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t06-9G-mrU">
+                                <rect key="frame" x="8" y="72" width="359" height="587"/>
                                 <color key="backgroundColor" red="0.98031717539999996" green="0.98043435810000001" blue="0.98027724029999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="1bH-tI-Vol">
-                                    <size key="itemSize" width="164" height="164"/>
+                                    <size key="itemSize" width="172" height="172"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="LH9-i7-fUI" customClass="PhotoCell" customModule="Small_Fb" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="PhotoCell" id="LH9-i7-fUI" customClass="PhotoCell" customModule="Small_Fb" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ncx-Kb-l9h">
-                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ncx-Kb-l9h">
+                                                    <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
@@ -221,6 +236,10 @@
                         <constraints>
                             <constraint firstItem="pUi-FO-6S9" firstAttribute="top" secondItem="0ia-iV-cbJ" secondAttribute="top" id="42S-ZC-2V3"/>
                             <constraint firstItem="pUi-FO-6S9" firstAttribute="leading" secondItem="96j-Kh-MBf" secondAttribute="leading" id="8vt-Ls-rXD"/>
+                            <constraint firstItem="96j-Kh-MBf" firstAttribute="bottom" secondItem="t06-9G-mrU" secondAttribute="bottom" constant="8" id="JOv-b4-yXz"/>
+                            <constraint firstItem="96j-Kh-MBf" firstAttribute="trailing" secondItem="t06-9G-mrU" secondAttribute="trailing" constant="8" id="V54-rL-B6K"/>
+                            <constraint firstItem="t06-9G-mrU" firstAttribute="top" secondItem="pUi-FO-6S9" secondAttribute="bottom" constant="8" id="tSR-tA-1k4"/>
+                            <constraint firstItem="t06-9G-mrU" firstAttribute="leading" secondItem="96j-Kh-MBf" secondAttribute="leading" constant="8" id="vRb-lk-vEv"/>
                             <constraint firstItem="pUi-FO-6S9" firstAttribute="trailing" secondItem="96j-Kh-MBf" secondAttribute="trailing" id="x9U-sH-2rc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="96j-Kh-MBf"/>
