@@ -69,10 +69,8 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                                 let imageUrl = "\(URL_BASE)/\(id)/picture?access_token=\(self.token.tokenString!)"
                                 //print("Heitem: \(imageUrl)")
                                 self.urls.append(imageUrl)
-                                
                             }
                         }
-                        
                         completed()
                     }
                 }
@@ -171,9 +169,6 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell{
-            
-//            cell.layer.borderColor = UIColor.blue.cgColor
-//            cell.layer.borderWidth = 3
             cell.selectionView.isHidden = false
             if let image = cell.image.image {
                 selectedPhotos[indexPath.row] = image
@@ -183,7 +178,6 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell{
-//            cell.layer.borderWidth = 0
             cell.selectionView.isHidden = true
             selectedPhotos[indexPath.row] = nil
             print("Heitem: Image deselected, selectedPhotos: \(selectedPhotos.count)")
