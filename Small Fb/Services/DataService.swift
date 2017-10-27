@@ -17,6 +17,7 @@ class DataService {
     
     //Database references
     private var _REF_BASE = DB_BASE
+    private var _REF_IMAGE_RECORD = DB_BASE.child("images")
     private var _REF_USERS = DB_BASE.child("users")
     
     //Storage references
@@ -25,6 +26,10 @@ class DataService {
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
+    }
+    
+    var REF_IMAGE_RECORD: DatabaseReference {
+        return _REF_IMAGE_RECORD
     }
     
     var REF_USERS: DatabaseReference {

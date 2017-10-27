@@ -17,6 +17,7 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var toolbar: UIToolbar!
     
     var photos = [Photo]()
     var urls = [String]()
@@ -121,16 +122,27 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     func storeImage(images: [Int:UIImage]){
         print("Heitem: Storing selected images")
         for (_, img) in images {
-            let imageData = UIImageJPEGRepresentation(img, 1.0)
-            let uploadRef = DataService.ds.REF_PHOTOS.child("\(randomString(length: 5)).jpg")
-            
-            uploadRef.putData(imageData!, metadata: nil, completion: { (metadata, error) in
-                if error != nil {
-                    print("Heitem: Error while storing image \(String(describing: error))")
-                } else {
-                    print("Heitem: Image stored successfully in Firebase")
-                }
-            })
+            if let imageData = UIImageJPEGRepresentation(img, 0.2) {
+                let metaData = StorageMetadata()
+                let imgUid = NSUUID().uuidString
+                metaData.contentType = "image/jpeg"
+                DataService.ds.REF_PHOTOS.child(imgUid).putData(imageData, metadata: metaData, completion: { (metadata, error) in
+                    if error != nil {
+                        print("Heitem: Error while storing image")
+                    } else {
+                        print("Heitem:  Image stored successfully in Firebase")
+                        let downloadUrl = metadata?.downloadURL()?.absoluteString
+                        if let url = downloadUrl {
+                            print("URL = \(url)")
+                            let imagePost: Dictionary<String, AnyObject> = [
+                                "imageUrl": url as AnyObject
+                            ]
+                            let firebasePost = DataService.ds.REF_IMAGE_RECORD.childByAutoId()
+                            firebasePost.setValue(imagePost)
+                        }
+                    }
+                })
+            }
         }
     }
     
@@ -174,6 +186,7 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 selectedPhotos[indexPath.row] = image
             }
             print("Heitem: Image selected, selectedPhotos: \(selectedPhotos.count)")
+            toolbar.isHidden = false
         }
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -181,6 +194,12 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             cell.selectionView.isHidden = true
             selectedPhotos[indexPath.row] = nil
             print("Heitem: Image deselected, selectedPhotos: \(selectedPhotos.count)")
+        }
+        
+        if(selectedPhotos.count != 0) {
+            toolbar.isHidden = false
+        } else {
+            toolbar.isHidden = true
         }
     }
     
