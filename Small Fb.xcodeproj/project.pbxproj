@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		57CBAF544F5E95E9BCD753D8 /* Pods_Small_Fb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EC79476B215EF1F95BBA07 /* Pods_Small_Fb.framework */; };
 		763A4F841FA37213003CB885 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763A4F831FA37213003CB885 /* ProfileVC.swift */; };
+		763A4F861FA49BB2003CB885 /* ProfilePic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763A4F851FA49BB2003CB885 /* ProfilePic.swift */; };
+		763A4F881FA4BFF4003CB885 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763A4F871FA4BFF4003CB885 /* User.swift */; };
 		7644D9661F97945E00332091 /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7644D9651F97945E00332091 /* SignUpTextField.swift */; };
 		7644D9671F97A57100332091 /* Klavika Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7644D9601F9790E000332091 /* Klavika Bold.otf */; };
 		7644D9691F97AB2B00332091 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7644D9681F97AB2B00332091 /* ShadowButton.swift */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		65EC79476B215EF1F95BBA07 /* Pods_Small_Fb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Small_Fb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		763A4F831FA37213003CB885 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		763A4F851FA49BB2003CB885 /* ProfilePic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePic.swift; sourceTree = "<group>"; };
+		763A4F871FA4BFF4003CB885 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7644D9601F9790E000332091 /* Klavika Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Klavika Bold.otf"; sourceTree = "<group>"; };
 		7644D9651F97945E00332091 /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
 		7644D9681F97AB2B00332091 /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
@@ -68,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				768201CF1F98D69E00F246EB /* Photo.swift */,
+				763A4F871FA4BFF4003CB885 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -78,6 +83,7 @@
 				7644D9681F97AB2B00332091 /* ShadowButton.swift */,
 				7644D9651F97945E00332091 /* SignUpTextField.swift */,
 				768201D11F98DAA500F246EB /* PhotoCell.swift */,
+				763A4F851FA49BB2003CB885 /* ProfilePic.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				763A4F881FA4BFF4003CB885 /* User.swift in Sources */,
 				7644D9691F97AB2B00332091 /* ShadowButton.swift in Sources */,
 				7644D9661F97945E00332091 /* SignUpTextField.swift in Sources */,
 				768201CE1F98D60500F246EB /* PhotosVC.swift in Sources */,
@@ -324,6 +331,7 @@
 				768201C91F98ADB200F246EB /* DataService.swift in Sources */,
 				768201CC1F98B20700F246EB /* FbConnectVC.swift in Sources */,
 				768201D41F98DEC000F246EB /* Contants.swift in Sources */,
+				763A4F861FA49BB2003CB885 /* ProfilePic.swift in Sources */,
 				768201D01F98D69E00F246EB /* Photo.swift in Sources */,
 				763A4F841FA37213003CB885 /* ProfileVC.swift in Sources */,
 				768201D21F98DAA500F246EB /* PhotoCell.swift in Sources */,
