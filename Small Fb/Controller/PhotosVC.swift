@@ -13,11 +13,13 @@ import Firebase
 import Alamofire
 import AlamofireImage
 
-class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var toolbar: UIToolbar!
+    
+    var previewed: Bool = false
     
     var photos = [Photo]()
     var urls = [String]()
@@ -29,6 +31,12 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        lpgr.minimumPressDuration = 0.2
+        lpgr.delaysTouchesBegan = true
+        lpgr.delegate = self
+        self.collectionView.addGestureRecognizer(lpgr)
         
         token = FBSDKAccessToken.current()
         
@@ -135,7 +143,8 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                         if let url = downloadUrl {
                             print("URL = \(url)")
                             let imagePost: Dictionary<String, AnyObject> = [
-                                "imageUrl": url as AnyObject
+                                "imageUrl": url as AnyObject,
+                                "user": KeychainWrapper.standard.string(forKey: "uid") as AnyObject
                             ]
                             let firebasePost = DataService.ds.REF_IMAGE_RECORD.childByAutoId()
                             firebasePost.setValue(imagePost)
@@ -144,6 +153,11 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
                 })
             }
         }
+        let alertController = UIAlertController(title: "Success", message:
+            "Selected pictures have been successfully saved to Firebase", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     
     func randomString(length: Int) -> String {
@@ -189,6 +203,7 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             toolbar.isHidden = false
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? PhotoCell{
             cell.selectionView.isHidden = true
@@ -202,7 +217,7 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
             toolbar.isHidden = true
         }
     }
-    
+
     @IBAction func signOutTapped(_ sender: Any) {
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: "uid")
         print("ID removed from keychain \(keychainResult)")
@@ -213,5 +228,56 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
 
     @IBAction func storeTapped(_ sender: Any) {
         storeImage(images: selectedPhotos)
+    }
+    
+    @IBAction func shareTapped(_ sender: Any) {
+        
+        var images = [UIImage]()
+        for (_, img) in selectedPhotos {
+            images.append(img)
+        }
+        let activityViewController = UIActivityViewController(activityItems: images, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list
+        //activityViewController.excludedActivityTypes = [ UIActivityType.airDrop, UIActivityType.postToFacebook ]
+        
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
+    @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+        
+        if gestureReconizer.state == UIGestureRecognizerState.ended {
+            return
+        }
+        
+        let p = gestureReconizer.location(in: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: p)
+        
+        if let index = indexPath {
+            if let cell = self.collectionView.cellForItem(at: index) as? PhotoCell {
+                if let image = cell.image.image {
+                    if previewed == false {
+                        performSegue(withIdentifier: "previewImage", sender: image)
+                        previewed = true
+                    }
+                }
+            }
+            
+        } else {
+            print("Could not find index path")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ImagePreviewVC {
+            if let photo = sender as? UIImage {
+                destination.p = photo
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        previewed = false
     }
 }

@@ -100,6 +100,11 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                             ]
                             DataService.ds.REF_USER_CURRENT.setValue(user)
                             print("Heitem:  Image stored successfully in Firebase")
+                            let alertController = UIAlertController(title: "Success", message:
+                                "Your profile informations have been successfully saved", preferredStyle: UIAlertControllerStyle.alert)
+                            alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
+                            
+                            self.present(alertController, animated: true, completion: nil)
                         }
                     }
                 })

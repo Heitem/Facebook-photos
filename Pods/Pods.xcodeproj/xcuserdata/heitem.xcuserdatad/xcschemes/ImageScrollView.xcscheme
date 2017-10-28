@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F25A72F5B04E6F1B7994E243C3031AEB'
-               BlueprintName = 'SwiftKeychainWrapper'
+               BlueprintIdentifier = 'DA7784E74D1BFF419790CC15877BB381'
+               BlueprintName = 'ImageScrollView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftKeychainWrapper.framework'>
+               BuildableName = 'ImageScrollView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

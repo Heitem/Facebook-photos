@@ -15,6 +15,7 @@
 		7644D9671F97A57100332091 /* Klavika Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7644D9601F9790E000332091 /* Klavika Bold.otf */; };
 		7644D9691F97AB2B00332091 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7644D9681F97AB2B00332091 /* ShadowButton.swift */; };
 		7644D96B1F97B51500332091 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644D96A1F97B51500332091 /* AlbumCell.xib */; };
+		764D53741FA4D73500896D53 /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764D53731FA4D73500896D53 /* ImagePreviewVC.swift */; };
 		768201C91F98ADB200F246EB /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201C81F98ADB200F246EB /* DataService.swift */; };
 		768201CA1F98AFC800F246EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 768201C61F98A9AF00F246EB /* GoogleService-Info.plist */; };
 		768201CC1F98B20700F246EB /* FbConnectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201CB1F98B20700F246EB /* FbConnectVC.swift */; };
@@ -38,6 +39,7 @@
 		7644D9651F97945E00332091 /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
 		7644D9681F97AB2B00332091 /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
 		7644D96A1F97B51500332091 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
+		764D53731FA4D73500896D53 /* ImagePreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewVC.swift; sourceTree = "<group>"; };
 		768201C61F98A9AF00F246EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		768201C81F98ADB200F246EB /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		768201CB1F98B20700F246EB /* FbConnectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FbConnectVC.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				768201CB1F98B20700F246EB /* FbConnectVC.swift */,
 				768201CD1F98D60500F246EB /* PhotosVC.swift */,
 				763A4F831FA37213003CB885 /* ProfileVC.swift */,
+				764D53731FA4D73500896D53 /* ImagePreviewVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageScrollView/ImageScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -287,6 +291,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -329,6 +334,7 @@
 				76A95F0D1F9786CE002749F5 /* SignUpVC.swift in Sources */,
 				76A95F0B1F9786CE002749F5 /* AppDelegate.swift in Sources */,
 				768201C91F98ADB200F246EB /* DataService.swift in Sources */,
+				764D53741FA4D73500896D53 /* ImagePreviewVC.swift in Sources */,
 				768201CC1F98B20700F246EB /* FbConnectVC.swift in Sources */,
 				768201D41F98DEC000F246EB /* Contants.swift in Sources */,
 				763A4F861FA49BB2003CB885 /* ProfilePic.swift in Sources */,

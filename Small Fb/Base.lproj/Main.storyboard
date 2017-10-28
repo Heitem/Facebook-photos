@@ -224,15 +224,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ncx-Kb-l9h">
+                                                <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ncx-Kb-l9h">
                                                     <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
+                                                    <gestureRecognizers/>
                                                 </imageView>
-                                                <view hidden="YES" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Woo-QD-Mni">
+                                                <view hidden="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Woo-QD-Mni">
                                                     <rect key="frame" x="0.0" y="0.0" width="172" height="172"/>
                                                     <color key="backgroundColor" red="0.33725490200000002" green="0.50588235290000005" blue="0.73725490199999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </view>
                                             </subviews>
                                         </view>
+                                        <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ncx-Kb-l9h" secondAttribute="trailing" id="41h-px-Kp0"/>
                                             <constraint firstItem="Woo-QD-Mni" firstAttribute="top" secondItem="LH9-i7-fUI" secondAttribute="top" id="DNM-fn-WJ8"/>
@@ -246,6 +248,7 @@
                                         <connections>
                                             <outlet property="image" destination="ncx-Kb-l9h" id="LB2-hY-Kty"/>
                                             <outlet property="selectionView" destination="Woo-QD-Mni" id="KgV-3G-YDW"/>
+                                            <outletCollection property="gestureRecognizers" destination="ODD-RW-Ge0" appends="YES" id="4SU-Jl-hna"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -262,6 +265,9 @@
                                     </barButtonItem>
                                     <barButtonItem title="Share" id="T1X-F0-kth">
                                         <color key="tintColor" red="0.33664101359999998" green="0.50580549239999995" blue="0.73791724439999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="shareTapped:" destination="oRk-gQ-64g" id="VeH-KK-deN"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -301,9 +307,11 @@
                         <outlet property="activityIndicator" destination="dhk-QF-4z0" id="6f4-9o-cj8"/>
                         <outlet property="collectionView" destination="t06-9G-mrU" id="Fsb-Ae-Eca"/>
                         <outlet property="toolbar" destination="0Z6-xg-rNi" id="hk2-29-fBv"/>
+                        <segue destination="BhI-pY-qEU" kind="show" identifier="previewImage" id="h3l-AG-cel"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nTh-Pr-5HZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="ODD-RW-Ge0"/>
             </objects>
             <point key="canvasLocation" x="2438" y="32"/>
         </scene>
@@ -315,19 +323,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kFJ-gb-q01">
+                                <rect key="frame" x="0.0" y="64" width="375" height="270"/>
+                                <color key="backgroundColor" red="0.39335346221923828" green="0.50856739282608032" blue="0.70644146203994751" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="MR7-Tg-nvR"/>
+                                </constraints>
+                            </view>
                             <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="5oQ-kQ-e2A" customClass="ProfilePic" customModule="Small_Fb" customModuleProvider="target">
-                                <rect key="frame" x="112" y="104" width="150" height="150"/>
+                                <rect key="frame" x="87" y="99" width="200" height="200"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="DR7-WR-RT2"/>
-                                    <constraint firstAttribute="width" constant="150" id="w2J-T1-UBp"/>
+                                    <constraint firstAttribute="height" constant="200" id="DR7-WR-RT2"/>
+                                    <constraint firstAttribute="width" constant="200" id="w2J-T1-UBp"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="o24-R2-rha" appends="YES" id="VId-Xw-MsF"/>
                                 </connections>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="i8V-wm-5za">
-                                <rect key="frame" x="40" y="314" width="295" height="170"/>
+                                <rect key="frame" x="40" y="384" width="295" height="170"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hvp-UG-oS6">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="30"/>
@@ -361,11 +376,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="i8V-wm-5za" firstAttribute="top" secondItem="5oQ-kQ-e2A" secondAttribute="bottom" constant="60" id="BsB-ZP-2pd"/>
+                            <constraint firstItem="kFJ-gb-q01" firstAttribute="leading" secondItem="npk-6R-qyL" secondAttribute="leading" id="Bto-Bf-y3p"/>
                             <constraint firstItem="npk-6R-qyL" firstAttribute="trailing" secondItem="i8V-wm-5za" secondAttribute="trailing" constant="40" id="F5w-aa-tww"/>
                             <constraint firstItem="i8V-wm-5za" firstAttribute="leading" secondItem="npk-6R-qyL" secondAttribute="leading" constant="40" id="MJZ-yR-27V"/>
-                            <constraint firstItem="5oQ-kQ-e2A" firstAttribute="top" secondItem="npk-6R-qyL" secondAttribute="top" constant="40" id="NCq-qa-3NR"/>
+                            <constraint firstItem="kFJ-gb-q01" firstAttribute="trailing" secondItem="npk-6R-qyL" secondAttribute="trailing" id="U2u-Mc-clh"/>
                             <constraint firstItem="5oQ-kQ-e2A" firstAttribute="centerX" secondItem="rqW-HC-5bf" secondAttribute="centerX" id="XQH-J5-5Oz"/>
+                            <constraint firstItem="kFJ-gb-q01" firstAttribute="top" secondItem="npk-6R-qyL" secondAttribute="top" id="eiR-Nl-HVa"/>
+                            <constraint firstItem="i8V-wm-5za" firstAttribute="top" secondItem="kFJ-gb-q01" secondAttribute="bottom" constant="50" id="yjr-ad-Yaf"/>
+                            <constraint firstItem="5oQ-kQ-e2A" firstAttribute="centerY" secondItem="kFJ-gb-q01" secondAttribute="centerY" id="ywD-PS-knu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="npk-6R-qyL"/>
                     </view>
@@ -392,6 +410,36 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3181.5999999999999" y="31.934032983508249"/>
+        </scene>
+        <!--Preview-->
+        <scene sceneID="Zs5-VC-eCp">
+            <objects>
+                <viewController storyboardIdentifier="PreviewView" title="Preview" id="BhI-pY-qEU" customClass="ImagePreviewVC" customModule="Small_Fb" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rRB-FB-KxF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-Wj-wOS" customClass="ImageScrollView" customModule="ImageScrollView">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bv6-at-xmi" firstAttribute="trailing" secondItem="2cc-Wj-wOS" secondAttribute="trailing" id="5fh-wX-dJO"/>
+                            <constraint firstItem="2cc-Wj-wOS" firstAttribute="leading" secondItem="bv6-at-xmi" secondAttribute="leading" id="I1A-TL-jKZ"/>
+                            <constraint firstItem="2cc-Wj-wOS" firstAttribute="top" secondItem="bv6-at-xmi" secondAttribute="top" id="Nev-CB-Db4"/>
+                            <constraint firstItem="bv6-at-xmi" firstAttribute="bottom" secondItem="2cc-Wj-wOS" secondAttribute="bottom" id="cEH-34-ie4"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bv6-at-xmi"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageScrollView" destination="2cc-Wj-wOS" id="AQg-Cg-uZM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JUq-yG-foP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3862" y="32"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="k4c-NP-KLz">
