@@ -13,7 +13,7 @@ import Firebase
 import Alamofire
 import AlamofireImage
 
-class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIGestureRecognizerDelegate {
+class PhotosVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -198,6 +198,15 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         } else {
             toolbar.isHidden = true
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        //let height = self.view.frame.size.height
+        
+        let width  = self.view.frame.size.width
+        
+        return CGSize(width: width * 0.465, height: width * 0.465)
     }
 
     @IBAction func signOutTapped(_ sender: Any) {

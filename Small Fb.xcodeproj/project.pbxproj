@@ -14,7 +14,7 @@
 		7644D9661F97945E00332091 /* SignUpTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7644D9651F97945E00332091 /* SignUpTextField.swift */; };
 		7644D9671F97A57100332091 /* Klavika Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7644D9601F9790E000332091 /* Klavika Bold.otf */; };
 		7644D9691F97AB2B00332091 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7644D9681F97AB2B00332091 /* ShadowButton.swift */; };
-		7644D96B1F97B51500332091 /* AlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644D96A1F97B51500332091 /* AlbumCell.xib */; };
+		7644D96B1F97B51500332091 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7644D96A1F97B51500332091 /* PhotoCell.xib */; };
 		764D53741FA4D73500896D53 /* ImagePreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764D53731FA4D73500896D53 /* ImagePreviewVC.swift */; };
 		768201C91F98ADB200F246EB /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768201C81F98ADB200F246EB /* DataService.swift */; };
 		768201CA1F98AFC800F246EB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 768201C61F98A9AF00F246EB /* GoogleService-Info.plist */; };
@@ -38,7 +38,7 @@
 		7644D9601F9790E000332091 /* Klavika Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Klavika Bold.otf"; sourceTree = "<group>"; };
 		7644D9651F97945E00332091 /* SignUpTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTextField.swift; sourceTree = "<group>"; };
 		7644D9681F97AB2B00332091 /* ShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
-		7644D96A1F97B51500332091 /* AlbumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCell.xib; sourceTree = "<group>"; };
+		7644D96A1F97B51500332091 /* PhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
 		764D53731FA4D73500896D53 /* ImagePreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreviewVC.swift; sourceTree = "<group>"; };
 		768201C61F98A9AF00F246EB /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		768201C81F98ADB200F246EB /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 				76A95F111F9786CE002749F5 /* Assets.xcassets */,
 				76A95F131F9786CE002749F5 /* LaunchScreen.storyboard */,
 				76A95F161F9786CE002749F5 /* Info.plist */,
-				7644D96A1F97B51500332091 /* AlbumCell.xib */,
+				7644D96A1F97B51500332091 /* PhotoCell.xib */,
 				768201C61F98A9AF00F246EB /* GoogleService-Info.plist */,
 			);
 			path = "Small Fb";
@@ -237,7 +237,7 @@
 			files = (
 				76A95F151F9786CE002749F5 /* LaunchScreen.storyboard in Resources */,
 				76A95F121F9786CE002749F5 /* Assets.xcassets in Resources */,
-				7644D96B1F97B51500332091 /* AlbumCell.xib in Resources */,
+				7644D96B1F97B51500332091 /* PhotoCell.xib in Resources */,
 				76A95F101F9786CE002749F5 /* Main.storyboard in Resources */,
 				7644D9671F97A57100332091 /* Klavika Bold.otf in Resources */,
 				768201CA1F98AFC800F246EB /* GoogleService-Info.plist in Resources */,
