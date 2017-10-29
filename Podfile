@@ -14,7 +14,6 @@ target 'Small Fb' do
   pod 'SwiftKeychainWrapper'
   pod 'Alamofire', '~> 4.5'
   pod 'AlamofireImage', '~> 3.3'
-  pod 'SwiftyJSON'
   pod 'ImageScrollView'
 
 end

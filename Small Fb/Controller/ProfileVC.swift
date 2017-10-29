@@ -54,8 +54,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             Alamofire.request(profilePicUrl!).responseImage { response in
                 
                 debugPrint(response)
-//                print(response.request!)
-//                print(response.response!)
                 debugPrint(response.result)
                 
                 if let image = response.result.value {
@@ -143,8 +141,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     @objc func doneClick() {
         let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = .medium
-//        dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "dd/MM/yyyy"
         dateBirthField.text = dateFormatter.string(from: datePicker.date)
         dateBirthField.resignFirstResponder()

@@ -109,24 +109,6 @@ class PhotosVC: UIViewController, UICollectionViewDelegate, UICollectionViewData
         completed()
     }
     
-//    func getDataFromUrl(url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//            completion(data, response, error)
-//            }.resume()
-//    }
-//
-//    func downloadImage(url: URL) -> UIImage {
-//        print("Download Started")
-//        var image: UIImage!
-//        getDataFromUrl(url: url) { data, response, error in
-//            guard let data = data, error == nil else { return }
-//            print(response?.suggestedFilename ?? url.lastPathComponent)
-//            print("Download Finished")
-//            image = UIImage(data: data)
-//        }
-//        return image
-//    }
-    
     func storeImage(images: [Int:UIImage]){
         print("Heitem: Storing selected images")
         for (_, img) in images {

@@ -12,8 +12,6 @@ class PhotoCell: UICollectionViewCell {
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var selectionView: UIView!
-    //    @IBOutlet weak var title: UILabel!
-//    @IBOutlet weak var numberImages: UILabel!
     
     var photo: Photo!
     
