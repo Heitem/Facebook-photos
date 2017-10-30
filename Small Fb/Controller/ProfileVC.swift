@@ -11,25 +11,45 @@ import Alamofire
 import AlamofireImage
 import Firebase
 
-class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var dateBirthField: UITextField!
+    @IBOutlet weak var infosView: UIView!
+    @IBOutlet weak var photosView: UIView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var imagePicker: UIImagePickerController!
     var datePicker : UIDatePicker!
     var user: User!
-
+    var firstTimeLoaded = false
+    var photos = [Photo]()
+    var photosUrl = [String]()
+    var previewed: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
+        let lpgr = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress))
+        lpgr.minimumPressDuration = 0.2
+        lpgr.delaysTouchesBegan = true
+        lpgr.delegate = self
+        self.collectionView.addGestureRecognizer(lpgr)
+        
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
         dateBirthField.delegate = self
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        photosView.isHidden = true
         
         DataService.ds.REF_USER_CURRENT.observeSingleEvent(of: .value) { (snapshot) in
             let value = snapshot.value as? NSDictionary
@@ -136,7 +156,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         toolBar.setItems([cancelButton, spaceButton, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         textField.inputAccessoryView = toolBar
-        
     }
     
     @objc func doneClick() {
@@ -152,4 +171,115 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func textFieldDidBeginEditing(_ textField: UITextField) {
         self.pickUpDate(self.dateBirthField)
     }
+    
+    @IBAction func indexChanged(_ sender: Any) {
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            infosView.isHidden = false
+            photosView.isHidden = true
+        case 1:
+            infosView.isHidden = true
+            photosView.isHidden = false
+            if firstTimeLoaded == false {
+                activityIndicator.startAnimating()
+                DataService.ds.REF_USER_CURRENT.child("images").observeSingleEvent(of: .value, with: { (snapshot) in
+                    
+                    if let value = snapshot.value as? [String: AnyObject] {
+                        for photo in value {
+                            if let imageUrl = photo.value["imageUrl"] as? String {
+                                print("Heitem: \(imageUrl)")
+                                self.photosUrl.append(imageUrl)
+                                DataRequest.addAcceptableImageContentTypes(["image/jpg"])
+                                Alamofire.request(imageUrl).responseImage { response in
+                                    
+                                    debugPrint(response)
+                                    print(response.request!)
+                                    print(response.response!)
+                                    debugPrint(response.result)
+                                    
+                                    if let image = response.result.value {
+                                        self.photos.append(Photo(image: image))
+                                        print("Heitem: Images downloaded successfully: \(image)")
+                                        print("Heitem: photos \(self.photos.count)")
+                                        self.activityIndicator.stopAnimating()
+                                        self.collectionView.reloadData()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                }) { (error) in
+                    print(error.localizedDescription)
+                }
+                firstTimeLoaded = true
+            }
+        default:
+            break
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? PhotoCell {
+            let photo = photos[indexPath.row]
+            cell.configureCell(photo)
+            
+            return cell
+            
+        } else {
+            return UICollectionViewCell()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        //let height = self.view.frame.size.height
+        
+        let width  = self.view.frame.size.width
+        
+        return CGSize(width: width * 0.465, height: width * 0.465)
+    }
+    
+    @objc func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+        
+        if gestureReconizer.state == UIGestureRecognizerState.ended {
+            return
+        }
+        
+        let p = gestureReconizer.location(in: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: p)
+        
+        if let index = indexPath {
+            if let cell = self.collectionView.cellForItem(at: index) as? PhotoCell {
+                if let image = cell.image.image {
+                    if previewed == false {
+                        performSegue(withIdentifier: "toPreview", sender: image)
+                        previewed = true
+                    }
+                }
+            }
+            
+        } else {
+            print("Could not find index path")
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? ImagePreviewVC {
+            if let photo = sender as? UIImage {
+                destination.p = photo
+            }
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        previewed = false
+    }
+    
 }

@@ -125,10 +125,9 @@ class PhotosVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
                         if let url = downloadUrl {
                             print("URL = \(url)")
                             let imagePost: Dictionary<String, AnyObject> = [
-                                "imageUrl": url as AnyObject,
-                                "user": KeychainWrapper.standard.string(forKey: "uid") as AnyObject
+                                "imageUrl": url as AnyObject
                             ]
-                            let firebasePost = DataService.ds.REF_IMAGE_RECORD.childByAutoId()
+                            let firebasePost = DataService.ds.REF_USER_CURRENT.child("images").childByAutoId()
                             firebasePost.setValue(imagePost)
                         }
                     }
@@ -140,22 +139,6 @@ class PhotosVC: UIViewController, UICollectionViewDelegateFlowLayout, UICollecti
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default,handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func randomString(length: Int) -> String {
-        
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let len = UInt32(letters.length)
-        
-        var randomString = ""
-        
-        for _ in 0 ..< length {
-            let rand = arc4random_uniform(len)
-            var nextChar = letters.character(at: Int(rand))
-            randomString += NSString(characters: &nextChar, length: 1) as String
-        }
-        
-        return randomString
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

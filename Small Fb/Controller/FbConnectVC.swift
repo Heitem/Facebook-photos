@@ -18,6 +18,7 @@ class FbConnectVC: UIViewController {
         super.viewDidLoad()
         
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         if (FBSDKAccessToken.current()) != nil {
 
@@ -47,7 +48,7 @@ class FbConnectVC: UIViewController {
                         return
                     } else {
                         if let dict = result as? NSDictionary {
-                            print("Heitem: \(connection?.urlResponse!), \(result!)")
+                            //print("Heitem: \(connection?.urlResponse!), \(result!)")
                             if let name = dict["name"] as? String {
                                 DataService.ds.REF_USER_CURRENT.child("name").setValue(name)
                                 DataService.ds.REF_USER_CURRENT.child("email").setValue(Auth.auth().currentUser?.email)
